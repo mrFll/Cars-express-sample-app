@@ -1,15 +1,10 @@
-const express = require('express');
-require('dotenv').config();
-
-const app = express();
+/*
+  This file will import the app and assign an HTTP server. 
+  It will also serve as the entry point of our app.
+*/
+const app = require('./app')
 const port = process.env.APP_RUNNING_PORT || 3000;
-
-app.use(express.json());
-
-app.get('/', (req, res) => {
-  res.send('Server is running!');
-})
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`)
-})
+});
