@@ -27,7 +27,7 @@ const createUser = async (req, res, next) => {
   try {
     const {first_name, last_name, age, email, password} = req.body;
     const insertionResult = await Users.createUser(first_name, last_name, age, email, password);
-    res.json({
+    res.status(201).json({
       message: "user successfully created.",
       insertedId: insertionResult.insertId
     });
