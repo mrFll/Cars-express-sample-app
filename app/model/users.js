@@ -18,7 +18,7 @@ const getUser = async (userId) => {
 
 const createUser = async (firstName, lastName, age, email, password) => {
   const query = `
-    INSERT INTO cars.users (first_name, last_name, age, email, password) VALUES (?, ?, ?, ?);
+    INSERT INTO cars.users (first_name, last_name, age, email, password) VALUES (?, ?, ?, ?, ?);
   `;
   const params = [firstName, lastName, age, email, password];
   const [result] = await Database.query(query, params);
