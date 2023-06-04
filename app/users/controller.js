@@ -25,8 +25,8 @@ const getUser = async (req, res, next) => {
 
 const createUser = async (req, res, next) => {
   try {
-    const {first_name, last_name, email, password} = req.body;
-    const insertionResult = await Users.createUser(first_name, last_name, email, password);
+    const {first_name, last_name, age, email, password} = req.body;
+    const insertionResult = await Users.createUser(first_name, last_name, age, email, password);
     res.json({
       message: "user successfully created.",
       insertedId: insertionResult.insertId
@@ -39,8 +39,8 @@ const createUser = async (req, res, next) => {
 const updateUser = async (req, res, next) => {
   try {
     const userId = req.params.id;
-    const {first_name, last_name, email, password} = req.body;
-    await Users.updateUser(userId, first_name, last_name, email, password);
+    const {first_name, last_name, age, email, password} = req.body;
+    await Users.updateUser(userId, first_name, last_name, age, email, password);
     res.json({
       message: "user successfully updated."
     });

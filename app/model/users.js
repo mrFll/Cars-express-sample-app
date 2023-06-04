@@ -16,19 +16,20 @@ const getUser = async (userId) => {
   return rows[0];
 }
 
-const createUser = async (firstName, lastName, email, password) => {
+const createUser = async (firstName, lastName, age, email, password) => {
   const query = `
-    INSERT INTO cars.users (first_name, last_name, email, password) VALUES (?, ?, ?, ?);
+    INSERT INTO cars.users (first_name, last_name, age, email, password) VALUES (?, ?, ?, ?);
   `;
-  const params = [firstName, lastName, email, password];
+  const params = [firstName, lastName, age, email, password];
   const [result] = await Database.query(query, params);
   return result;
 }
 
-const updateUser = async (userId, firstName, lastName, email, password) => {
+const updateUser = async (userId, firstName, lastName, age, email, password) => {
   const updateData = {
     first_name: firstName,
     last_name: lastName,
+    age,
     email,
     password
   };
